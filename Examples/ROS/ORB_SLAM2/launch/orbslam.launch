@@ -1,0 +1,6 @@
+<launch>
+    <!--添加被执行的节点-->
+    <node name = "ORB_SLAM2" pkg="ORB_SLAM2" type="RGBD" args="/home/rich/simulation_ws/src/ORBSLAM2_with_pointcloud_map/ORB_SLAM2_modified/Vocabulary/ORBvoc.txt /home/rich/simulation_ws/src/ORBSLAM2_with_pointcloud_map/ORB_SLAM2_modified/Examples/ROS/ORB_SLAM2/TUM1.yaml" output="screen"/>
+    <!--添加rosbag play-->
+    <node pkg="rosbag" type="play" name="bag_play" args="/home/rich/ORB_SLAM_Dataset/rgbd_dataset_freiburg1_room.bag "/> 
+</launch>

@@ -1,0 +1,13 @@
+PointCloudMapping::PointCloudMapping(double resolution_,double meank_,double thresh_) { 
+this->resolution = resolution_; 
+this->meank = meank; 
+this->thresh = thresh_; 
+
+statistical_filter.setMeanK(meank); 
+statistical_filter.setStddevMulThresh(thresh); 
+voxel.setLeafSize( resolution, resolution, resolution); 
+
+globalMap.reset(new PointCloud); 
+loopbusy=false; 
+viewerThread = make_shared( bind(&PointCloudMapping::viewer, this ) ); 
+}
